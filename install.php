@@ -11,7 +11,7 @@ $conn->exec($sql);
 echo ("database created successfully<br>");
 $sql = "USE PackLunch";
 $conn->exec($sql);
-echo("Database selevted seccessfully<br>");
+echo("Database selected seccessfully<br>");
 $stmt=$conn->prepare("DROP TABLE IF EXISTS Tbluser;
 CREATE TABLE Tblusers
 (UserID INI(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -24,6 +24,6 @@ Password VARCHAR(200) NOT NULL,
 Role TINYINI (1) NOT NULL,
 Username VARCHAR(30) NOT NULL,
 ");
-$conn->exec($stmt);
+$stmt->execute();
 echo("Table Tblusers created successfully<br>")
 ?>
