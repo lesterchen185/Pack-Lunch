@@ -21,20 +21,40 @@ House VARCHAR(30) NOT NULL,
 Year INT (2) NOT NULL,
 Balance DECIMAL(5,2) NOT NULL,
 Password VARCHAR(200) NOT NULL,
-Role TINYINI (1) NOT NULL,
+Role TINYINT (1) NOT NULL,
 Username VARCHAR(30) NOT NULL)
 ");
 $stmt->execute();
-echo("Table Tblusers created successfully<br>")
+echo("Table Tblusers created successfully<br>");
 
 $stmt=$conn->prepare("DROP TABLE IF EXISTS Tblfood;
 CREATE TABLE Tblfood
-(foodID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+(FoodID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 Name VARCHAR(30) NOT NULL,
 Catagory VARCHAR(30) NOT NULL,
-Stocklevel INT (2) NOT NULL,
+Stocklevel INT(2) NOT NULL,
 Price DECIMAL(5,2) NOT NULL)
 ");
 $stmt->execute();
-echo("Table Tblfood created successfully<br>")
+echo("Table Tblfood created successfully<br>");
+
+$stmt=$conn->prepare("DROP TABLE IF EXISTS Tblorder;
+CREATE TABLE Tblorder
+(OrderID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+Status VARCHAR(20) NOT NULL,
+UserID INT(4) NOT NULL,
+Orderdate DATETIME);
+");
+$stmt->execute();
+echo("Table Tblfood created successfully<br>");
+
+$stmt=$conn->prepare("DROP TABLE IF EXISTS Tblbasket;
+CREATE TABLE TblBasket
+(OrderID INT(4) NOT NULL,
+FoodID INT(4) NOT NULL,
+Quantity INT(2) DEFAULT 1,
+PRIMARY KEY (OrderID, FoodID));
+");
+$stmt->execute();
+echo("Table Tblbasket created successfully<br>");
 ?>
