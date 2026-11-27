@@ -46,7 +46,7 @@ UserID INT(4) NOT NULL,
 Orderdate DATETIME);
 ");
 $stmt->execute();
-echo("Table Tblfood created successfully<br>");
+echo("Table Tblorder created successfully<br>");
 
 $stmt=$conn->prepare("DROP TABLE IF EXISTS Tblbasket;
 CREATE TABLE TblBasket
