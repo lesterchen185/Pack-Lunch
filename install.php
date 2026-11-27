@@ -26,4 +26,17 @@ Username VARCHAR(30) NOT NULL,
 ");
 $stmt->execute();
 echo("Table Tblusers created successfully<br>")
+
+$stmt=$conn->prepare("DROP TABLE IF EXISTS Tblfood;
+CREATE TABLE Tblfood
+(foodID INI(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+Name VARCHAR(30) NOT NULL,
+Catagory VARCHAR(30) NOT NULL,
+Stocklevel INI (2) NOT NULL,
+Price DECIMAL(5,2) NOT NULL,
+");
+$stmt->execute();
+echo("Table Tblfood created successfully<br>")
+?>
+
 ?>
