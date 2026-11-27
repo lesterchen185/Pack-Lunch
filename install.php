@@ -38,5 +38,3 @@ Price DECIMAL(5,2) NOT NULL,
 $stmt->execute();
 echo("Table Tblfood created successfully<br>")
 ?>
-
-?>
